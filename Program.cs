@@ -23,7 +23,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 
-app.MapGet("/lishykksu_gmail_com", (HttpRequest request) =>
+app.MapGet("/", (HttpRequest request) => 
 {
     string xStr = request.Query["x"];
     string yStr = request.Query["y"];
