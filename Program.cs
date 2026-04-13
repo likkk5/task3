@@ -28,7 +28,6 @@ app.MapGet("/lishykksu_gmail_com", (HttpRequest request) =>
     long result = (x / Gcd(x, y)) * y;
     return Results.Text(result.ToString(), "text/plain");
 
-    return Results.Text(result.ToString(), "text/plain");
 });
 
 long Gcd(long a, long b)
