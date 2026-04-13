@@ -1,5 +1,7 @@
 using System.Numerics;
+var builder = WebApplication.CreateBuilder(args);
 
+var app = builder.Build();
 app.MapGet("/lishykksu_gmail_com", (HttpRequest request) =>
 {
     string xStr = request.Query["x"];
@@ -30,3 +32,4 @@ BigInteger Gcd(BigInteger a, BigInteger b)
     }
     return a;
 }
+app.Run();
