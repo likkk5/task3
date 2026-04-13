@@ -10,18 +10,23 @@ app.MapGet("/lishykksu_gmail_com", (HttpRequest request) =>
     if (!long.TryParse(xStr, out long x) || !long.TryParse(yStr, out long y))
         return Results.Text("NaN", "text/plain");
 
-    if (x < 0 || y < 0)
+    //if (x < 0 || y < 0)
+    //    return Results.Text("NaN", "text/plain");
+
+    //long result;
+
+    ////if (x == 0 || y == 0)
+    ////    result = 0;
+    //if (x <= 0 || y <= 0)
+    //    return Results.Text("NaN", "text/plain");
+
+    //else
+    //    result = (x / Gcd(x, y)) * y;
+    if (x < 1 || y < 1)
         return Results.Text("NaN", "text/plain");
 
-    long result;
-
-    //if (x == 0 || y == 0)
-    //    result = 0;
-    if (x <= 0 || y <= 0)
-        return Results.Text("NaN", "text/plain");
-
-    else
-        result = (x / Gcd(x, y)) * y;
+    long result = (x / Gcd(x, y)) * y;
+    return Results.Text(result.ToString(), "text/plain");
 
     return Results.Text(result.ToString(), "text/plain");
 });
