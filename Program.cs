@@ -15,8 +15,11 @@ app.MapGet("/lishykksu_gmail_com", (HttpRequest request) =>
 
     long result;
 
-    if (x == 0 || y == 0)
-        result = 0;
+    //if (x == 0 || y == 0)
+    //    result = 0;
+    if (x <= 0 || y <= 0)
+        return Results.Text("NaN", "text/plain");
+
     else
         result = (x / Gcd(x, y)) * y;
 
