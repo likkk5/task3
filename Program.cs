@@ -2,7 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 
-app.MapGet("/lishykksu_gmail_com", (HttpRequest request) => 
+app.MapGet("/lishykksu_gmail_com", (HttpRequest request) =>
 {
     string xStr = request.Query["x"];
     string yStr = request.Query["y"];
@@ -10,24 +10,12 @@ app.MapGet("/lishykksu_gmail_com", (HttpRequest request) =>
     if (!long.TryParse(xStr, out long x) || !long.TryParse(yStr, out long y))
         return Results.Text("NaN", "text/plain");
 
-    //if (x < 0 || y < 0)
-    //    return Results.Text("NaN", "text/plain");
-
-    //long result;
-
-    ////if (x == 0 || y == 0)
-    ////    result = 0;
-    //if (x <= 0 || y <= 0)
-    //    return Results.Text("NaN", "text/plain");
-
-    //else
-    //    result = (x / Gcd(x, y)) * y;
-    if (x < 1 || y < 1)
+    if (x < 0 || y < 0)
         return Results.Text("NaN", "text/plain");
 
-    long result = (x / Gcd(x, y)) * y;
-    return Results.Text(result.ToString(), "text/plain");
+    long result = (x == 0 || y == 0) ? 0 : (x / Gcd(x, y)) * y;
 
+    return Results.Text(result.ToString(), "text/plain");
 });
 
 long Gcd(long a, long b)
